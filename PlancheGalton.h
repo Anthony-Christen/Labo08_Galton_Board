@@ -16,7 +16,8 @@
 #define PLANCHE_GALTON_H
 
 class PlancheGalton {
-
+public:
+private:
 };
 
 #endif //PLANCHE_GALTON_H
