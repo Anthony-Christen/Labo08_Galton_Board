@@ -1,6 +1,6 @@
 /*
   -----------------------------------------------------------------------------------
-  Fichier     : main.cpp
+  Fichier     : PlancheGalton.h
   Nom du labo : Labo08_Galton_Board
   Auteur(s)   : Kylian Manzini & Anthony Christen
   Date        : 11.01.2021
@@ -12,13 +12,11 @@
   -----------------------------------------------------------------------------------
 */
 
-#include <cstdlib>
-#include <iostream>
-#include "PlancheGalton.h"
+#ifndef PLANCHE_GALTON_H
+#define PLANCHE_GALTON_H
 
-using namespace std;
+class PlancheGalton {
 
-int main() {
+};
 
-   return EXIT_SUCCESS;
-}
+#endif //PLANCHE_GALTON_H

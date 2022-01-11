@@ -1,6 +1,6 @@
 /*
   -----------------------------------------------------------------------------------
-  Fichier     : main.cpp
+  Fichier     : PlancheGalton.cpp
   Nom du labo : Labo08_Galton_Board
   Auteur(s)   : Kylian Manzini & Anthony Christen
   Date        : 11.01.2021
@@ -18,7 +18,3 @@
 
 using namespace std;
 
-int main() {
-
-   return EXIT_SUCCESS;
-}
