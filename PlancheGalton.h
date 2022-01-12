@@ -15,9 +15,15 @@
 #ifndef PLANCHE_GALTON_H
 #define PLANCHE_GALTON_H
 
+#include <vector>
+
 class PlancheGalton {
-public:
-private:
+      unsigned int nbrBilles;
+      unsigned int nbrColonnes;
+      std::vector<unsigned int> distribution;
+      std::vector<unsigned int> getDistribution() const;
+   public:
+      PlancheGalton(unsigned int pNbrBilles, unsigned int pHauteur);
 };
 
 #endif //PLANCHE_GALTON_H

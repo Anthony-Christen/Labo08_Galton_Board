@@ -20,5 +20,11 @@ using namespace std;
 
 int main() {
 
+
+   PlancheGalton planche1 (10000,5);
+   PlancheGalton planche2 (10000,10);
+   PlancheGalton planche3 (10000,20);
+   PlancheGalton planche4 (10000,30);
+
    return EXIT_SUCCESS;
 }
