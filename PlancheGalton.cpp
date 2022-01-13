@@ -18,8 +18,8 @@
 
 using namespace std;
 
-std::vector<unsigned int> PlancheGalton::getDistribution() const {
-   vector<unsigned int> retourDistrib(nbrColonnes, 0);
+vector<int> PlancheGalton::getDistribution() const {
+   vector<int> retourDistrib(nbrColonnes, 0);
 
    //Les trois prochaines lignes permettents de generer de l'aleatoire.
    //Elles sont directement reprise de la documentation de uniform_int_distribution, ci-dessous :
@@ -30,7 +30,7 @@ std::vector<unsigned int> PlancheGalton::getDistribution() const {
 
    //Boucle pour chaque bille lancée dans le planche de galton
    for (int i = 0; i < nbrBilles; ++i) {
-      double probaColonne = nbrColonnes/2.;
+      double probaColonne = nbrColonnes / 2.;
       //Boucle pour chaque clou rencontre par les billes dans le planche de galton
       for (int j = 0; j < hauteur; ++j) {
          //Permet de generer une valeur bool qui decide si la bille va à gauche ou à droite
