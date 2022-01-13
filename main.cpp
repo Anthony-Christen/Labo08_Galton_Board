@@ -3,12 +3,15 @@
   Fichier     : main.cpp
   Nom du labo : Labo08_Galton_Board
   Auteur(s)   : Kylian Manzini & Anthony Christen
-  Date        : 11.01.2021
-  But         : le but du programme et non le but du laboratoire !!
+  Date        : 13.01.2021
+  But         : Demande à l'utilisateur de creer une planche de galton de son choix en
+                en lui demandant d'enter des valeurs, d'afficher sa distribution et de
+                recommancer
 
-  Remarque(s) : à compléter
+  Remarque(s) : -
 
-  Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3)
+  Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
+                Mingw-w64 g++ 11.1.0 (Manzini)
   -----------------------------------------------------------------------------------
 */
 
@@ -21,10 +24,10 @@ using namespace std;
 int main() {
 
 
-   PlancheGalton planche1 (10000,5);
-   PlancheGalton planche2 (10000,10);
-   PlancheGalton planche3 (10000,20);
-   PlancheGalton planche4 (10000,30);
+   PlancheGalton planche1 (10,3);
+   PlancheGalton planche4 (30,10);
+
+
 
    return EXIT_SUCCESS;
 }
