@@ -31,10 +31,10 @@ int main() {
                 MSG_RECOMMENCER = "Voulez-vous recommencer ? ",
                 MSG_ERREUR      = "Erreur. Recommencer la saisie.";
 
-   const unsigned int MAX_BILLES  = 1000,
-                      MIN_BILLES  = 1,
-                      MAX_HAUTEUR = 100,
-                      MIN_HAUTEUR = 1;
+   const int    MAX_BILLES      = 1000,
+                MIN_BILLES      = 1,
+                MAX_HAUTEUR     = 100,
+                MIN_HAUTEUR     = 1;
 
    //--------------------------------------------------------------------------------
    // Message de bienvenue

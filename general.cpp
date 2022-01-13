@@ -15,6 +15,7 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3)
 #include <string>    // Afin d'utiliser un paramètre string.
 #include <limits>    // Permet de vider le buffer.
 #include "general.h" // Innclusion du fichier d'en-tête.
+
 using namespace std;
 
 // VOIR SI UTILISER UNE AUTRE FONCTION DE SAISIE

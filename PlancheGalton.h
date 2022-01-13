@@ -18,9 +18,9 @@
 #include <vector>
 
 class PlancheGalton {
-      unsigned int nbrBilles;
-      unsigned int nbrColonnes;
-      unsigned int hauteur;
+      unsigned nbrBilles;
+      unsigned nbrColonnes;
+      unsigned hauteur;
       std::vector<int> distribution;
 
       /// Genere une distribution selon la planche
@@ -28,7 +28,7 @@ class PlancheGalton {
       std::vector<int> getDistribution() const;
    public:
       /// Fonction constructeur de PlancheGalton
-      PlancheGalton(unsigned int pNbrBilles, unsigned int pHauteur);
+      PlancheGalton(unsigned nbrBilles, unsigned hauteur);
       void affichage() const;
 };
 

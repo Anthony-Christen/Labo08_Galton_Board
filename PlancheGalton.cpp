@@ -12,7 +12,7 @@
   -----------------------------------------------------------------------------------
 */
 
-#include <random> // uniform_int_distribution
+#include <random> // uniform_int_distribution()
 #include <algorithm>
 #include <iostream>
 #include "PlancheGalton.h"
@@ -20,10 +20,9 @@
 using namespace std;
 using vecteur = vector<int>;
 
-PlancheGalton::PlancheGalton(unsigned int pNbrBilles, unsigned int pHauteur) {
-   nbrBilles = pNbrBilles;
-   nbrColonnes = pHauteur + 1;
-   hauteur = pHauteur;
+PlancheGalton::PlancheGalton(unsigned nbrBilles, unsigned hauteur)
+: nbrBilles(nbrBilles), nbrColonnes(hauteur + 1), hauteur(hauteur)
+{
    distribution = getDistribution();
 }
 
@@ -35,7 +34,7 @@ vector<int> PlancheGalton::getDistribution() const {
    //https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution
    random_device rd;
    mt19937 gen(rd());
-   uniform_int_distribution<unsigned int> distrib(0, 1);
+   uniform_int_distribution<unsigned> distrib(0, 1);
 
    //Boucle pour chaque bille lancée dans le planche de galton
    for (int i = 0; i < nbrBilles; ++i) {
