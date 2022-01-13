@@ -4,7 +4,9 @@ Fichier     : main.cpp
 Nom du labo : Labo08_Galton_Board
 Auteur(s)   : Kylian Manzini & Anthony Christen
 Date        : 13.01.2021
-But         : Demande à l'utilisateur de creer une planche de galton en
+But         : Demande à l'utilisateur de creer une planche de galton en donnant sa
+              hauteur ainsi que le nombre de billes lancées, affiche la distribution
+              et finalement demande si l'utilisateur veut recommencer.
 Remarque(s) : -
 Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
               Mingw-w64 g++ 11.1.0 (Manzini)
