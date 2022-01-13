@@ -21,17 +21,20 @@
 using namespace std;
 
 int main() {
+
    // -------------------------------------------------------------------------------
    // Constantes
    // -------------------------------------------------------------------------------
-   const int H_MIN            = 1;    // Hauteur minimum de la planche
-   const int H_MAX            = 100;  // Hauteur maximum de la planche
-   const int BILLES_MIN       = 1;    // Nombre de billes minimum
-   const int BILLES_MAX       = 1000; // Nombre de billes maximum
-   const string MSG_BIENVENUE = "";
-   const string MSG_INVITE    = "";
-   const string MSG_ERREUR    = "";
-   const string MSG_QUITTER   = "Presser ENTER pour quitter ";
+   const string MSG_BIENVENUE   = "Ce programme cree une planche de galton et affiche sa distribution",
+                MSG_HAUTEUR     = "Hauteur de la planche ",
+                MSG_BILLES      = "Nbr de billes lancee  ",
+                MSG_RECOMMENCER = "Voulez-vous recommencer ? ",
+                MSG_ERREUR      = "Erreur. Recommencer la saisie.";
+
+   const unsigned int MAX_BILLES  = 1000,
+                      MIN_BILLES  = 1,
+                      MAX_HAUTEUR = 100,
+                      MIN_HAUTEUR = 1;
 
    //--------------------------------------------------------------------------------
    // Message de bienvenue
@@ -40,24 +43,24 @@ int main() {
    cout << MSG_BIENVENUE << endl;
    cout << "====================================" << endl << endl;
 
-   // -------------------------------------------------------------------------------
-   // Saisies utilisateur
-   // -------------------------------------------------------------------------------
-   cout << "Saisissez une hauteur [" << H_MIN << ", " << H_MAX << "] : ";
-   int hauteur = saisieIntervalle(H_MIN, H_MAX, MSG_ERREUR);
+   do {
+      // -------------------------------------------------------------------------------
+      // Saisies utilisateur
+      // -------------------------------------------------------------------------------
 
-   cout << "Saisissez un nombre de billes [" << BILLES_MIN << ", " << BILLES_MAX << "] : ";
-   int nb_billes = saisieIntervalle(BILLES_MIN, BILLES_MAX, MSG_ERREUR);
+      int iHauteur = saisieIntervalle(MIN_HAUTEUR , MAX_HAUTEUR, MSG_HAUTEUR, MSG_ERREUR);
+      int iBilles  = saisieIntervalle(MIN_BILLES , MAX_BILLES, MSG_BILLES, MSG_ERREUR);
 
-   // -------------------------------------------------------------------------------
-   // Planche de Galton
-   // -------------------------------------------------------------------------------
 
-   //--------------------------------------------------------------------------------
-   // Fin du programme
-   //--------------------------------------------------------------------------------
-   cout << endl << endl << MSG_QUITTER;
-   cin.ignore(numeric_limits<streamsize>::max(),'\n');
+      // -------------------------------------------------------------------------------
+      // Generation et affichage de la planche de galton
+      // -------------------------------------------------------------------------------
+      PlancheGalton planche(iBilles, iHauteur);
+      planche.affichage();
+
+   }
+   // Recommencer le programme
+   while(estOui(MSG_RECOMMENCER));
 
    return EXIT_SUCCESS;
 }

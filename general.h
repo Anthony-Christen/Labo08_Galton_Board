@@ -15,16 +15,18 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3)
 
 #include <string>
 
-//-----------------------------------------------------------------------------------
-// Fonction saisieIntervalle
-//-----------------------------------------------------------------------------------
-// But        récupérer et contôler la saisie de l'utilisateur dans un intervalle
-//            donné.
-// @param     min         minimum inclus dans l'intervalle.
-// @param     max         maximum inclus dans l'intervalle.
-// @param     MSG_ERREUR  message à afficher en cas d'entrée erronée.
-// Return     saisie de l'utilisateur.
-// Exception  n/a
-int saisieIntervalle(int min, int max, const std::string& MSG_ERREUR="");
+/// Demander à l'utilisateur si oui ou non au MSG_SAISIE affiché.
+/// @param MSG_SAISIE         CONST STRING - Le MSG_SAISIE qui est affiché à l'utilisateur.
+/// @return                booleen signifie oui ou non.
+bool estOui(const std::string& MSG_SAISIE);
+
+/// But        récupérer et contôler la saisie de l'utilisateur dans un intervalle
+///            donné.
+/// @param     min         minimum inclus dans l'intervalle.
+/// @param     max         maximum inclus dans l'intervalle.
+/// @param     MSG_ERREUR  message à afficher en cas d'entrée erronée.
+/// Return     saisie de l'utilisateur.
+/// Exception  n/a
+int saisieIntervalle(const int& MIN, const int& MAX, const std::string& MSG_SAISIE, const std::string& MSG_ERREUR="");
 
 #endif // GENERAL_H

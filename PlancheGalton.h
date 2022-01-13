@@ -18,9 +18,18 @@
 #include <vector>
 
 class PlancheGalton {
-public:
-   void affichage() const;
-private:
+      unsigned int nbrBilles;
+      unsigned int nbrColonnes;
+      unsigned int hauteur;
+      std::vector<int> distribution;
+
+      /// Genere une distribution selon la planche
+      /// \return    Vector<unsigned int> du nombre de billes par emplacement
+      std::vector<int> getDistribution() const;
+   public:
+      /// Fonction constructeur de PlancheGalton
+      PlancheGalton(unsigned int pNbrBilles, unsigned int pHauteur);
+      void affichage() const;
 };
 
 #endif //PLANCHE_GALTON_H
