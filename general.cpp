@@ -1,6 +1,6 @@
 /*
   -----------------------------------------------------------------------------------
-  Fichier     : annexe.cpp
+  Fichier     : general.cpp
   Nom du labo : Labo08_Galton_Board
   Auteur(s)   : Kylian Manzini & Anthony Christen
   Date        : 13.01.2021
@@ -12,7 +12,7 @@
                 Mingw-w64 g++ 11.1.0 (Manzini)
   -----------------------------------------------------------------------------------
 */
-#include "annexe.h"
+#include "general.h"
 #include <iostream>    // input et output
 #include <limits>      // numeric_limits
 

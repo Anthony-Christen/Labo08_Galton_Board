@@ -19,7 +19,7 @@
 #include <iostream>        // output
 #include <string>          // messages
 #include "PlancheGalton.h" // classe PlancheGalton
-#include "annexe.h"        // fonctions annexes
+#include "general.h"       // fonctions annexes
 
 using namespace std;
 

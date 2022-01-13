@@ -1,6 +1,6 @@
 /*
   -----------------------------------------------------------------------------------
-  Fichier     : annexe.h
+  Fichier     : general.h
   Nom du labo : Labo08_Galton_Board
   Auteur(s)   : Kylian Manzini & Anthony Christen
   Date        : 13.01.2021
@@ -13,8 +13,8 @@
   -----------------------------------------------------------------------------------
 */
 
-#ifndef LABO08_GALTON_BOARD_ANNEXE_H
-#define LABO08_GALTON_BOARD_ANNEXE_H
+#ifndef LABO08_GALTON_BOARD_GENERAL_H
+#define LABO08_GALTON_BOARD_GENERAL_H
 
 #include <string> //message
 
@@ -27,8 +27,8 @@ unsigned int saisieNbrEntreDeuxBornes(const std::string& message,unsigned int nb
 
 /// Demander à l'utilisateur si oui ou non au message affiché.
 /// \param message         CONST STRING - Le message qui est affiché à l'utilisateur.
-/// \return                booleen.
+/// \return                booleen signifie oui ou non.
 bool estOui(const std::string& message);
 
 
-#endif //LABO08_GALTON_BOARD_ANNEXE_H
+#endif //LABO08_GALTON_BOARD_GENERAL_H
