@@ -15,8 +15,11 @@
 #ifndef PLANCHE_GALTON_H
 #define PLANCHE_GALTON_H
 
+#include <vector>
+
 class PlancheGalton {
 public:
+   void affichage() const;
 private:
 };
 
