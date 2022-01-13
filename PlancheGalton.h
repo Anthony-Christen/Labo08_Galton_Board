@@ -16,7 +16,7 @@
 #ifndef PLANCHE_GALTON_H
 #define PLANCHE_GALTON_H
 
-#include <vector>
+#include <vector> //vector distribution
 
 class PlancheGalton {
       unsigned int nbrBilles;

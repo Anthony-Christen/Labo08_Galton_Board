@@ -14,7 +14,7 @@
 */
 
 #include "PlancheGalton.h"
-#include <random>
+#include <random> // uniform_int_distribution
 
 using namespace std;
 
@@ -51,7 +51,4 @@ PlancheGalton::PlancheGalton(unsigned int pNbrBilles, unsigned int pHauteur) {
    hauteur = pHauteur;
    distribution = getDistribution();
 }
-
-
-using namespace std;
 
