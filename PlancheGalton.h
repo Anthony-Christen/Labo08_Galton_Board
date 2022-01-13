@@ -30,6 +30,5 @@ class PlancheGalton {
    public:
       /// Fonction constructeur de PlancheGalton
       PlancheGalton(unsigned int pNbrBilles, unsigned int pHauteur);
-};
 
 #endif //PLANCHE_GALTON_H

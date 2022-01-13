@@ -12,31 +12,30 @@
                 Mingw-w64 g++ 11.1.0 (Manzini)
   -----------------------------------------------------------------------------------
 */
-#include "general.h"
-#include <iostream>    // input et output
-#include <limits>      // numeric_limits
+
+#include "general.h" // Innclusion du fichier d'en-tête.
+#include <iostream>  // input et output
+#include <string>    // Afin d'utiliser un paramètre string.
+#include <limits>    // Permet de vider le buffer.
 
 using namespace std;
 
-unsigned int saisieNbrEntreDeuxBornes(const std::string &message, unsigned int nbrMin, unsigned int nbrMax) {
-   unsigned int nbr;
-   bool error;
-   do
-   {
-      error = false;
-      cout << message << " [" << nbrMin << ".." << nbrMax << "] : ";
-      cin >> nbr;
-      if (cin.fail()){
-         error = true;
-         cin.clear();
-      }
-      else if (!(nbr >= nbrMin and nbr <= nbrMax))
-         error = true;
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
-   } while (error);
 
-   return nbr;
+int saisieIntervalle(int MIN, int MAX, const string& MSG_ERREUR) {
+   int entree;
+   // Boucle de saisie
+   do {
+      // Vérifier si on doit déclencher une erreur
+      if (!(cin >> entree) || (entree < MIN || entree > MAX)) {
+         cin.clear(); // reset des bits d'erreur
+         cout << MSG_ERREUR;
+      }
+      // Vider le buffer
+      cin.ignore(numeric_limits<streamsize>::max(),'\n');
+   } while (entree < MIN || entree > MAX);
+   return entree;
 }
+
 
 bool estOui(const std::string& message){
    char input;

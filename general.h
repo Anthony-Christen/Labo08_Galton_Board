@@ -13,17 +13,23 @@
   -----------------------------------------------------------------------------------
 */
 
-#ifndef LABO08_GALTON_BOARD_GENERAL_H
-#define LABO08_GALTON_BOARD_GENERAL_H
+#ifndef GENERAL_H
+#define GENERAL_H
 
 #include <string> //message
 
-/// Demander à l'utilisateur d'entrer un nombre compris entre deux bornes.
-/// \param message         CONST STRING - Le message qui est affiché pour demander à l'utilisateur d'entrer un nombre.
-/// \param nbrMin          INT          - Nombre minimal
-/// \param nbrMax          INT          - Nombre maximal
-/// \return                le nombre entré par l'utilisateur.
-unsigned int saisieNbrEntreDeuxBornes(const std::string& message,unsigned int nbrMin,unsigned int nbrMax);
+//-----------------------------------------------------------------------------------
+// Fonction saisieIntervalle
+//-----------------------------------------------------------------------------------
+// But        récupérer et contôler la saisie de l'utilisateur dans un intervalle
+//            donné.
+// @param     min         minimum inclus dans l'intervalle.
+// @param     max         maximum inclus dans l'intervalle.
+// @param     MSG_ERREUR  message à afficher en cas d'entrée erronée.
+// Return     saisie de l'utilisateur.
+// Exception  n/a
+int saisieIntervalle(int min, int max, const std::string& MSG_ERREUR="");
+
 
 /// Demander à l'utilisateur si oui ou non au message affiché.
 /// \param message         CONST STRING - Le message qui est affiché à l'utilisateur.
@@ -31,4 +37,4 @@ unsigned int saisieNbrEntreDeuxBornes(const std::string& message,unsigned int nb
 bool estOui(const std::string& message);
 
 
-#endif //LABO08_GALTON_BOARD_GENERAL_H
+#endif // GENERAL_H
