@@ -24,15 +24,17 @@ int saisieIntervalle(const int& MIN, const int& MAX, const std::string& MSG_SAIS
    bool error;
    // Boucle de saisie
    do {
+      error = false;
       cout << MSG_SAISIE << "["<< MIN << ".." << MAX <<"]" << " : ";
       // Vérifier si on doit déclencher une erreur
       if (!(cin >> entree) || (entree < MIN || entree > MAX)) {
          cin.clear(); // reset des bits d'erreur
          cout << MSG_ERREUR << endl;
+         error = true;
       }
       // Vider le buffer
       cin.ignore(numeric_limits<streamsize>::max(),'\n');
-   } while (entree < MIN || entree > MAX);
+   } while (error);
    return entree;
 }
 
@@ -43,14 +45,13 @@ bool estOui(const std::string& MSG_SAISIE, const std::string& MSG_ERREUR){
    do {
       error = false;
       cout << MSG_SAISIE << " [o/n] : ";
-      cin  >> input;
 
       // Detecte si le flux est planté
-      if (cin.fail()){
+      if (!(cin  >> input)){
          error = true;
          cin.clear();
       }
-      // Si non, assigne une valeur a retour si les entrées sont correcte
+      // Vérifie si l'entrée est correcte
       else{
          if (input == 'o' or input == 'O')
             retour = true;

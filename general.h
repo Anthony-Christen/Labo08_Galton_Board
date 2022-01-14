@@ -23,8 +23,8 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
 bool estOui(const std::string& MSG_SAISIE, const std::string& MSG_ERREUR="");
 
 /// Récupérer et contôler la saisie de l'utilisateur dans un intervalle donné.
-/// @param     min         minimum inclus dans l'intervalle.
-/// @param     max         maximum inclus dans l'intervalle.
+/// @param     MIN         minimum inclus dans l'intervalle.
+/// @param     MAX         maximum inclus dans l'intervalle.
 /// @param     MSG_SAISIE  message à afficher pour le contexe de la saisie.
 /// @param     MSG_ERREUR  message à afficher en cas d'entrée erronée.
 /// Return     saisie de l'utilisateur.
