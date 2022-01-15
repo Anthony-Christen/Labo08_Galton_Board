@@ -1,5 +1,5 @@
 /*
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 Fichier     : main.cpp
 Nom du labo : Labo08_Galton_Board
 Auteur(s)   : Kylian Manzini & Anthony Christen
@@ -11,7 +11,7 @@ But         : Demande à l'utilisateur une hauteur et un nombre de billes afin d
 Remarque(s) : -
 Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
               Mingw-w64 g++ 11.1.0 (Manzini)
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 */
 
 #include <cstdlib>         // EXIT_SUCCESS
@@ -53,7 +53,6 @@ int main() {
       // Generation de la planche de Galton et affichage de la distribution
       // ----------------------------------------------------------------------------
       PlancheGalton planche(hauteur, nbrBilles);
-      planche.distribution = planche.genererDistribution();
       planche.afficherDistribution();
 
    } while(estOui(MSG_RECOMMENCER,MSG_ERREUR)); // Recommencer/quitter le programme

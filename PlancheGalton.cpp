@@ -1,5 +1,5 @@
 /*
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 Fichier     : PlancheGalton.cpp
 Nom du labo : Labo08_Galton_Board
 Auteur(s)   : Kylian Manzini & Anthony Christen
@@ -9,11 +9,11 @@ Remarque(s) : - Ajout de lignes verticales dans la fonction d'affichage afin de
                 representer les colonnes
 Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
               Mingw-w64 g++ 11.1.0 (Manzini)
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 */
 
 #include <random>             // Pour uniform_int_distribution
-#include <algorithm>          // Pour max_element
+#include <algorithm>          // max_element()
 #include <iostream>           // I/O
 #include "PlancheGalton.h"    // Inclusion du fichier d'en-tête.
 
@@ -24,7 +24,8 @@ using vecteur = vector<unsigned>;
 unsigned PlancheGalton::prochainNo = 1;
 
 PlancheGalton::PlancheGalton(unsigned hauteur, unsigned nbrBilles)
-: hauteur(hauteur), nbrBilles(nbrBilles), nbrColonnes(hauteur + 1), no(prochainNo) {
+: hauteur(hauteur), nbrBilles(nbrBilles), nbrColonnes(hauteur + 1), no(prochainNo)
+, distribution(genererDistribution()) {
    ++prochainNo;
 }
 
@@ -52,7 +53,7 @@ vecteur PlancheGalton::genererDistribution() const {
          else
             probaColonne -= .5;
       }
-      //incremente l'emplacement du vecteur retourDistrib ou la bille est tombée
+      // Incremente l'emplacement du vecteur retourDistrib ou la bille est tombée
       ++retourDistrib[floor(probaColonne)];
    }
 
@@ -61,6 +62,7 @@ vecteur PlancheGalton::genererDistribution() const {
 
 void PlancheGalton::afficherDistribution() const {
    cout << endl << "Planche de Galton numero " << no << endl;
+
    if (!distribution.empty()) {
       // Nombre de billes de la colonne comportant le plus de billes (colonne la
       // plus haute)
@@ -79,6 +81,7 @@ void PlancheGalton::afficherDistribution() const {
          cout << '|' << endl;
       }
       cout << endl;
+
       if (hauteur > 50) {
          cout << "/!\\ Avec les parametres choisis, il est possible de devoir "
                  "redimensionner la fenetre /!\\" << endl;
