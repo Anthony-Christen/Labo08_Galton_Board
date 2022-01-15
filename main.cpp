@@ -23,6 +23,8 @@ using namespace std;
 // --------
 // - Ajouter destructeur et autres constructeurs ? (pas utile dans notre programme)
 // - Ajouter getter/setter ? (pas utile dans notre programme)
+// - Générer la distribution à la création de la Planche ?
+// - Utilité de la variable statqiue total ?
 
 int main() {
    // -------------------------------------------------------------------------------
