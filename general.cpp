@@ -40,7 +40,7 @@ int saisieIntervalle(const int& MIN, const int& MAX, const string& MSG_SAISIE, c
       // Vérifier si on doit déclencher une erreur
       if (!(cin >> entree) || (entree < MIN || entree > MAX)) {
          cin.clear(); // reset des bits d'erreur
-         cout << MSG_ERREUR;
+         cout << MSG_ERREUR << endl;
       }
 
       cin.ignore(numeric_limits<streamsize>::max(),'\n'); // Vider le buffer
@@ -49,13 +49,13 @@ int saisieIntervalle(const int& MIN, const int& MAX, const string& MSG_SAISIE, c
    return entree;
 }
 
-bool estOui(const string& MSG_SAISIE){
+bool estOui(const string& MSG_SAISIE,const string& MSG_ERREUR){
    char entree;
    bool retour,
         error;
    do {
       error = false;
-      cout << MSG_SAISIE << "[O|N] : ";
+      cout << endl << MSG_SAISIE << "[O|N] : ";
 
       // Detecte si le flux est planté
       if (!(cin >> entree)) {
@@ -66,6 +66,7 @@ bool estOui(const string& MSG_SAISIE){
             retour = true;
          } else if (entree == 'n' or entree == 'N') {
             retour = false;
+         }
          else{
             error = true;
             cout << MSG_ERREUR << endl;
