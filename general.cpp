@@ -4,7 +4,7 @@ Nom du fichier : general.cpp
 Nom du labo    : Labo08_Galton_Board
 Auteur(s)      : Kylian Manzini & Anthony Christen
 Date creation  : 11.01.2021
-Description    : Définitions des fonctions générales déclarées dans general.h.
+Description    : Définitions des fonctions générales déclarées dans general.h
 Remarque(s)    : Les fonctions ci-dessous ont un usage général et sont orientées
                  vers la réutilisabilité.
 Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3)
@@ -12,15 +12,23 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3)
 */
 
 #include <iostream>  // I/O
-#include <string>    // Afin d'utiliser un paramètre string.
-#include <limits>    // Permet de vider le buffer.
-#include "general.h" // Innclusion du fichier d'en-tête.
+#include <limits>    // Afin de vider le buffer
+#include "general.h" // Inclusion du fichier d'en-tête
 
 using namespace std;
 
-// VOIR SI UTILISER UNE AUTRE FONCTION DE SAISIE
+void messageBienvenue(const string& MSG_BIENVENUE, char motif) {
+   string ligne;
+   for (int i = 0; i < MSG_BIENVENUE.length(); ++i) {
+      ligne += motif;
+   }
 
-int saisieIntervalle(const int& MIN, const int& MAX, const std::string& MSG_SAISIE, const string& MSG_ERREUR) {
+   cout << ligne << endl;
+   cout << MSG_BIENVENUE << endl;
+   cout << ligne << endl << endl;
+}
+
+int saisieIntervalle(const int& MIN, const int& MAX, const string& MSG_SAISIE, const string& MSG_ERREUR) {
    int entree;
    // Boucle de saisie
    cout << MSG_SAISIE << "["<< MIN << ".." << MAX <<"]" << " : ";
@@ -28,40 +36,41 @@ int saisieIntervalle(const int& MIN, const int& MAX, const std::string& MSG_SAIS
       // Vérifier si on doit déclencher une erreur
       if (!(cin >> entree) || (entree < MIN || entree > MAX)) {
          cin.clear(); // reset des bits d'erreur
-         cout << MSG_ERREUR << endl;
+         cout << MSG_ERREUR;
       }
-      // Vider le buffer
-      cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+      cin.ignore(numeric_limits<streamsize>::max(),'\n'); // Vider le buffer
    } while (entree < MIN || entree > MAX);
+
    return entree;
 }
 
-bool estOui(const std::string& MSG_SAISIE){
-   char input;
+bool estOui(const string& MSG_SAISIE){
+   char entree;
    bool retour,
         error;
    do {
       error = false;
-      cout << MSG_SAISIE << " [o/n] : ";
-      cin  >> input;
-      cout << endl;
+      cout << MSG_SAISIE << "[O|N] : ";
 
       // Detecte si le flux est planté
-      if (cin.fail()){
+      if (!(cin >> entree)) {
          error = true;
          cin.clear();
-      }
-      // Si non, assigne une valeur a retour si les entrées sont correcte
-      else{
-         if (input == 'o' or input == 'O')
+      } else { // Si non, assigne une valeur a retour si les entrées sont correctes
+         if (entree == 'o' or entree == 'O') {
             retour = true;
-         else if (input == 'n' or input == 'N')
+         } else if (entree == 'n' or entree == 'N') {
             retour = false;
-         else
+         } else {
             error = true;
+         }
       }
-      // Vider le buffer
-      cin.ignore(numeric_limits<streamsize>::max(),'\n');
-   } while (error);
+
+      cin.ignore(numeric_limits<streamsize>::max(),'\n'); // Vider le buffer
+   } while(error);
+
+   cout << endl;
+
    return retour;
 }

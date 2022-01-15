@@ -4,10 +4,9 @@
   Nom du labo : Labo08_Galton_Board
   Auteur(s)   : Kylian Manzini & Anthony Christen
   Date        : 11.01.2021
-  But         : le but du programme et non le but du laboratoire !!
-
-  Remarque(s) : à compléter
-
+  But         : Déclaration de la classe PlancheGalton, de ses propriétés et de
+                ses fonctions.
+  Remarque(s) : /
   Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3)
   -----------------------------------------------------------------------------------
 */
@@ -18,18 +17,27 @@
 #include <vector>
 
 class PlancheGalton {
-      unsigned nbrBilles;
-      unsigned nbrColonnes;
-      unsigned hauteur;
-      std::vector<int> distribution;
+public:
+   // Constructeur
+   PlancheGalton(unsigned hauteur, unsigned nbrBilles);
 
-      /// Genere une distribution selon la planche
-      /// \return    Vector<unsigned int> du nombre de billes par emplacement
-      std::vector<int> getDistribution() const;
-   public:
-      /// Fonction constructeur de PlancheGalton
-      PlancheGalton(unsigned nbrBilles, unsigned hauteur);
-      void affichage() const;
+   void afficherDistribution() const;
+
+private:
+   /// But        Generer la distribution des billes de la planche de Galton
+   /// @param     n/a
+   /// return     vecteur contenant le nombre de billes de chaque colonne
+   /// Exception  n/a
+   std::vector<unsigned> genererDistribution() const;
+
+   static unsigned        total;      // nombre de planches créées
+   static unsigned        prochainNo;
+
+   const unsigned         no;         // numéro de la planche
+   const unsigned         nbrBilles;
+   const unsigned         nbrColonnes;
+   const unsigned         hauteur;
+   const std::vector<unsigned> distribution;
 };
 
 #endif //PLANCHE_GALTON_H
