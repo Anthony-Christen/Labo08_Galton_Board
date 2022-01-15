@@ -1,4 +1,4 @@
-
+/*
 -----------------------------------------------------------------------------------
 Fichier     : PlancheGalton.cpp
 Nom du labo : Labo08_Galton_Board
