@@ -35,7 +35,7 @@ int main() {
                   MSG_HAUTEUR     = "> Saisissez la hauteur de la planche ",
                   MSG_BILLES      = "> Saisissez le nombre de billes     ",
                   MSG_RECOMMENCER = "> Voulez-vous recommencer ",
-                  MSG_ERREUR      = "> Erreur d'entree, veuillez reessayer : ";
+                  MSG_ERREUR      = "Erreur. Entree non-valide, veuillez reessayer.";
 
    const unsigned MAX_BILLES      = 1000,
                   MIN_BILLES      = 1,

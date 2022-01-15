@@ -18,7 +18,6 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
 
 using namespace std;
 
-
 void messageBienvenue(const string& MSG_BIENVENUE, char motif) {
    string ligne;
    for (int i = 0; i < MSG_BIENVENUE.length(); ++i) {
@@ -30,17 +29,16 @@ void messageBienvenue(const string& MSG_BIENVENUE, char motif) {
    cout << ligne << endl << endl;
 }
 
-int saisieIntervalle(const int& MIN, const int& MAX, const string& MSG_SAISIE, const string& MSG_ERREUR) {
+int saisieIntervalle(const int& MIN, const int& MAX, const string& MSG_SAISIE,
+                     const string& MSG_ERREUR) {
    int entree;
-   bool error;
    // Boucle de saisie
    do {
-      error = false;
       cout << MSG_SAISIE << "["<< MIN << ".." << MAX <<"]" << " : ";
       // Vérifier si on doit déclencher une erreur
       if (!(cin >> entree) || (entree < MIN || entree > MAX)) {
          cin.clear(); // reset des bits d'erreur
-         cout << MSG_ERREUR << endl;
+         cout << MSG_ERREUR << endl << endl;
       }
 
       cin.ignore(numeric_limits<streamsize>::max(),'\n'); // Vider le buffer
@@ -49,7 +47,7 @@ int saisieIntervalle(const int& MIN, const int& MAX, const string& MSG_SAISIE, c
    return entree;
 }
 
-bool estOui(const string& MSG_SAISIE,const string& MSG_ERREUR){
+bool estOui(const string& MSG_SAISIE, const string& MSG_ERREUR){
    char entree;
    bool retour,
         error;

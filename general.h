@@ -16,7 +16,7 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
 
 #include <string>
 
-/// But        Afficher un message de bienvenue avec un moitf particuler
+/// But        Afficher un message de bienvenue avec un moitf particulier
 /// @param     MSG_BIENVENUE  message à afficher
 /// @param     motif          motif à répéter pour l'affichage du message de
 ///                           bienvenue

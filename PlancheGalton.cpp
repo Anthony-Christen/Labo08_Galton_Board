@@ -5,7 +5,7 @@ Nom du labo : Labo08_Galton_Board
 Auteur(s)   : Kylian Manzini & Anthony Christen
 Date        : 13.01.2021
 But         : Définition des fonctions de la classe PlancheGalton
-Remarque(s) : - Ajout de lignes dans la fonction d'affichage afin de
+Remarque(s) : - Ajout de lignes verticales dans la fonction d'affichage afin de
                 representer les colonnes
 Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
               Mingw-w64 g++ 11.1.0 (Manzini)
@@ -15,7 +15,7 @@ Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
 #include <random>             // Pour uniform_int_distribution
 #include <algorithm>          // Pour max_element
 #include <iostream>           // I/O
-#include "PlancheGalton.h"    // Innclusion du fichier d'en-tête.
+#include "PlancheGalton.h"    // Inclusion du fichier d'en-tête.
 
 using namespace std;
 
@@ -31,7 +31,7 @@ PlancheGalton::PlancheGalton(unsigned hauteur, unsigned nbrBilles)
    ++prochainNo;
 }
 
-PlancheGalton::~PlancheGalton(){
+PlancheGalton::~PlancheGalton() {
    --total;
 }
 
@@ -86,8 +86,10 @@ void PlancheGalton::afficherDistribution() const {
          cout << '|' << endl;
       }
       cout << endl;
-      if(hauteur > 50)
-         cout << "/!\\ Avec les parametres choisi, il est possible de devoir redimensionner la fenetre /!\\" << endl;
+      if (hauteur > 50) {
+         cout << "/!\\ Avec les parametres choisis, il est possible de devoir "
+                 "redimensionner la fenetre /!\\" << endl;
+      }
    }
 
    /*
