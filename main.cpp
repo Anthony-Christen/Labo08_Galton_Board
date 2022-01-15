@@ -1,16 +1,17 @@
 /*
-  -----------------------------------------------------------------------------------
-  Fichier     : main.cpp
-  Nom du labo : Labo08_Galton_Board
-  Auteur(s)   : Kylian Manzini & Anthony Christen
-  Date        : 11.01.2021
-  But         : Demande à l'utilisateur une hauteur et un nombre de billes afin de
-                simuler un plateau de Galton. Le résultat de la simulation est
-                ensuite affiché à l'utilisateur. Finalement, l'utilisateur est
-                invité à recommencer une simulation ou à quitter le programme.
-  Remarque(s) : /
-  Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3)
-  -----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+Fichier     : main.cpp
+Nom du labo : Labo08_Galton_Board
+Auteur(s)   : Kylian Manzini & Anthony Christen
+Date        : 13.01.2021
+But         : Demande à l'utilisateur une hauteur et un nombre de billes afin de
+              simuler un plateau de Galton. Le résultat de la simulation est
+              ensuite affiché à l'utilisateur. Finalement, l'utilisateur est
+              invité à recommencer une simulation ou à quitter le programme.
+Remarque(s) : -
+Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
+              Mingw-w64 g++ 11.1.0 (Manzini)
+-----------------------------------------------------------------------------------
 */
 
 #include <cstdlib>         // EXIT_SUCCESS
@@ -61,7 +62,7 @@ int main() {
       PlancheGalton planche(hauteur, nbrBilles);
       planche.afficherDistribution();
 
-   } while(estOui(MSG_RECOMMENCER)); // Recommencer/quitter le programme
+   } while(estOui(MSG_RECOMMENCER,MSG_ERREUR)); // Recommencer/quitter le programme
 
    return EXIT_SUCCESS;
 }
