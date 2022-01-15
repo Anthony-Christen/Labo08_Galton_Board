@@ -16,11 +16,20 @@ Compilateur    : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
 
 #include <string>
 
+/// But        Afficher un message de bienvenue avec un moitf particuler
+/// @param     MSG_BIENVENUE  message à afficher
+/// @param     motif          motif à répéter pour l'affichage du message de
+///                           bienvenue
+/// return     n/a
+/// Exception  n/a
+void messageBienvenue(const std::string& MSG_BIENVENUE, char motif = '-');
+
 /// Récupérer et contôler la saisie de l'utilisateur si oui ou non au MSG_SAISIE affiché.
 /// @param     MSG_SAISIE  message à afficher pour le contexe de la saisie.
 /// @param     MSG_ERREUR  message à afficher en cas d'entrée erronée.
 /// @return                booleen signifiant oui ou non.
 bool estOui(const std::string& MSG_SAISIE, const std::string& MSG_ERREUR="");
+
 
 /// Récupérer et contôler la saisie de l'utilisateur dans un intervalle donné.
 /// @param     MIN         minimum inclus dans l'intervalle.
@@ -29,6 +38,7 @@ bool estOui(const std::string& MSG_SAISIE, const std::string& MSG_ERREUR="");
 /// @param     MSG_ERREUR  message à afficher en cas d'entrée erronée.
 /// Return     saisie de l'utilisateur.
 /// Exception  n/a
-int saisieIntervalle(const int& MIN, const int& MAX, const std::string& MSG_SAISIE, const std::string& MSG_ERREUR="");
+int saisieIntervalle(const int& MIN, const int& MAX, const std::string&
+                     MSG_SAISIE, const std::string& MSG_ERREUR = "");
 
 #endif // GENERAL_H
