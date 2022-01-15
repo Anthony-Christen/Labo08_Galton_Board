@@ -31,6 +31,10 @@ PlancheGalton::PlancheGalton(unsigned hauteur, unsigned nbrBilles)
    ++prochainNo;
 }
 
+PlancheGalton::~PlancheGalton(){
+   --total;
+}
+
 vecteur PlancheGalton::genererDistribution() const {
    vecteur retourDistrib(nbrColonnes, 0);
 

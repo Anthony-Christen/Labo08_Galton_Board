@@ -20,6 +20,8 @@ class PlancheGalton {
 public:
    // Constructeur
    PlancheGalton(unsigned hauteur, unsigned nbrBilles);
+   // Destructeur
+   ~PlancheGalton();
 
    void afficherDistribution() const;
 
@@ -38,6 +40,7 @@ private:
    const unsigned         nbrColonnes;
    const unsigned         hauteur;
    const std::vector<unsigned> distribution;
+
 };
 
 #endif //PLANCHE_GALTON_H
