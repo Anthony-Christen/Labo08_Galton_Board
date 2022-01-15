@@ -21,18 +21,11 @@ using namespace std;
 
 using vecteur = vector<unsigned>;
 
-unsigned PlancheGalton::total = 0;
 unsigned PlancheGalton::prochainNo = 1;
 
 PlancheGalton::PlancheGalton(unsigned hauteur, unsigned nbrBilles)
-: hauteur(hauteur), nbrBilles(nbrBilles), nbrColonnes(hauteur + 1),
-  distribution(genererDistribution()), no(prochainNo) {
-   ++total;
+: hauteur(hauteur), nbrBilles(nbrBilles), nbrColonnes(hauteur + 1), no(prochainNo) {
    ++prochainNo;
-}
-
-PlancheGalton::~PlancheGalton() {
-   --total;
 }
 
 vecteur PlancheGalton::genererDistribution() const {
@@ -40,7 +33,7 @@ vecteur PlancheGalton::genererDistribution() const {
 
    //Les trois prochaines lignes permettents de generer de l'aleatoire.
    //Elles sont directement reprises de la documentation de
-   // uniform_int_distribution, ci-dessous :
+   //uniform_int_distribution, ci-dessous :
    //https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution
    random_device rd;
    mt19937 gen(rd());

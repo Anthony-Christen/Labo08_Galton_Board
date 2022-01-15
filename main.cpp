@@ -20,13 +20,6 @@ Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
 
 using namespace std;
 
-// A voir :
-// --------
-// - Ajouter destructeur et autres constructeurs ? (pas utile dans notre programme)
-// - Ajouter getter/setter ? (pas utile dans notre programme)
-// - Générer la distribution à la création de la Planche ?
-// - Utilité de la variable statqiue total ?
-
 int main() {
    // -------------------------------------------------------------------------------
    // Constantes
@@ -60,6 +53,7 @@ int main() {
       // Generation de la planche de Galton et affichage de la distribution
       // ----------------------------------------------------------------------------
       PlancheGalton planche(hauteur, nbrBilles);
+      planche.distribution = planche.genererDistribution();
       planche.afficherDistribution();
 
    } while(estOui(MSG_RECOMMENCER,MSG_ERREUR)); // Recommencer/quitter le programme

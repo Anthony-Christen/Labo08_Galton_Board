@@ -20,26 +20,23 @@ class PlancheGalton {
 public:
    // Constructeur
    PlancheGalton(unsigned hauteur, unsigned nbrBilles);
-   // Destructeur
-   ~PlancheGalton();
 
-   void afficherDistribution() const;
-
-private:
+   std::vector<unsigned> distribution;
    /// But        Generer la distribution des billes de la planche de Galton
    /// @param     n/a
    /// return     vecteur contenant le nombre de billes de chaque colonne
    /// Exception  n/a
    std::vector<unsigned> genererDistribution() const;
 
-   static unsigned        total;      // nombre de planches créées
-   static unsigned        prochainNo;
+   void afficherDistribution() const;
 
+private:
+
+   static unsigned        prochainNo;
    const unsigned         no;         // numéro de la planche
    const unsigned         nbrBilles;
    const unsigned         nbrColonnes;
    const unsigned         hauteur;
-   const std::vector<unsigned> distribution;
 
 };
 
