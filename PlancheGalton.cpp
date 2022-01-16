@@ -6,7 +6,7 @@ Auteur(s)   : Kylian Manzini & Anthony Christen
 Date        : 13.01.2021
 But         : Définition des fonctions de la classe PlancheGalton
 Remarque(s) : - Ajout de lignes verticales dans la fonction d'affichage afin de
-                representer les colonnes
+                representer les colonnes.
 Compilateur : Apple clang version 13.0.0 (clang-1300.0.29.3) (Christen)
               Mingw-w64 g++ 11.1.0 (Manzini)
 -------------------------------------------------------------------------------------
@@ -23,15 +23,20 @@ using vecteur = vector<unsigned>;
 
 unsigned PlancheGalton::prochainNo = 1;
 
+// ----------------------------------------------------------------------------------
+// Constructeur
+// ----------------------------------------------------------------------------------
 PlancheGalton::PlancheGalton(unsigned hauteur, unsigned nbrBilles)
-: hauteur(hauteur), nbrBilles(nbrBilles), nbrColonnes(hauteur + 1), no(prochainNo)
-, distribution(genererDistribution()) {
+: hauteur(hauteur), nbrBilles(nbrBilles), nbrColonnes(hauteur + 1), no(prochainNo) {
+   vecteur v(nbrColonnes);
+   this->distribution = v;
    ++prochainNo;
 }
 
-vecteur PlancheGalton::genererDistribution() const {
-   vecteur retourDistrib(nbrColonnes, 0);
-
+// ----------------------------------------------------------------------------------
+// Fonctions membres
+// ----------------------------------------------------------------------------------
+void PlancheGalton::genererDistribution() {
    //Les trois prochaines lignes permettents de generer de l'aleatoire.
    //Elles sont directement reprises de la documentation de
    //uniform_int_distribution, ci-dessous :
@@ -54,39 +59,50 @@ vecteur PlancheGalton::genererDistribution() const {
             probaColonne -= .5;
       }
       // Incremente l'emplacement du vecteur retourDistrib ou la bille est tombée
-      ++retourDistrib[floor(probaColonne)];
+      ++this->distribution[floor(probaColonne)];
    }
-
-   return retourDistrib;
 }
 
-void PlancheGalton::afficherDistribution() const {
+void PlancheGalton::affichage() const {
    cout << endl << "Planche de Galton numero " << no << endl;
 
-   if (!distribution.empty()) {
-      // Nombre de billes de la colonne comportant le plus de billes (colonne la
-      // plus haute)
-      unsigned colMax = *max_element(distribution.cbegin(), distribution.cend());
-
-      cout << endl;
-      for(unsigned niveau = colMax; niveau > 0; --niveau) {
-         for(auto j = distribution.cbegin(); j != distribution.cend(); ++j) {
-            cout << '|';
-            if ((int)*j - (int)niveau >= 0) { // *j --> nombre de billes
-               cout << '*';
-            } else {
-               cout << ' ';
-            }
-         }
-         cout << '|' << endl;
-      }
-      cout << endl;
+   vecteur v(nbrColonnes); // vecteur correspondant à la distribution lorsqu'on
+                           // créé un objet PlanchGalton
+   if (distribution != v) {
+      cout << *this;
 
       if (hauteur > 50) {
-         cout << "/!\\ Avec les parametres choisis, il est possible de devoir "
-                 "redimensionner la fenetre /!\\" << endl;
+         cout << endl << "/!\\ Avec les parametres choisis, il est possible de"
+                         " devoir redimensionner la fenetre /!\\" << endl;
       }
+   } else {
+      cout << endl << "La distribution de la planche de Galton créée est vide."
+           << endl;
    }
+}
+
+// ----------------------------------------------------------------------------------
+// Surcharge
+// ----------------------------------------------------------------------------------
+ostream& operator<<(ostream& os, const PlancheGalton& pg) {
+   // Nombre de billes de la colonne comportant le plus de billes (la plus haute)
+   unsigned colMax = *max_element(pg.distribution.cbegin(), pg.distribution.cend());
+
+   cout << endl;
+   for (unsigned niveau = colMax; niveau > 0; --niveau) {
+      for (unsigned col = 0; col < pg.nbrColonnes; ++col) {
+         os << '|';
+         if ((int) pg.distribution.at(col) - (int) niveau >= 0) {
+            os << '*';
+         } else {
+            os << ' ';
+         }
+      }
+      os << '|' << endl;
+   }
+   cout << endl;
+
+   return os;
 
    /*
       Exemple
@@ -98,6 +114,6 @@ void PlancheGalton::afficherDistribution() const {
       *   * * * *    (niveau 2)
       *   * * * * *  (niveau 1)
       --------------------------------------
-      4 0 3 6 2 5 1  (nombre de billes = *j)
+      4 0 3 6 2 5 1  (nombre de billes = distribution.at(col))
    */
 }

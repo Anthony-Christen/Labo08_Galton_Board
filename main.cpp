@@ -53,7 +53,8 @@ int main() {
       // Generation de la planche de Galton et affichage de la distribution
       // ----------------------------------------------------------------------------
       PlancheGalton planche(hauteur, nbrBilles);
-      planche.afficherDistribution();
+      planche.genererDistribution();
+      planche.affichage();
 
    } while(estOui(MSG_RECOMMENCER,MSG_ERREUR)); // Recommencer/quitter le programme
 
